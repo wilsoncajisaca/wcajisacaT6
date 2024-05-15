@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="wcajisacaT6.Vistas.CargaDatos"
+             Title="CargaDatos">
+    <VerticalStackLayout>
+        <Label 
+            Text="Consumo de servicio web - GET"
+            FontSize="20"
+            HorizontalTextAlignment="Center"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="codigo"
+                TextColor="Blue"
+                Grid.Row="0"
+                Grid.Column="0"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"
+                />
+            <Label Text="Nombre"
+                TextColor="Blue"
+                Grid.Row="0"
+                Grid.Column="1"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"
+                />
+            <Label Text="apellido"
+                TextColor="Blue"
+                Grid.Row="0"
+                Grid.Column="2"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"
+                />
+            <Label Text="edad"
+                TextColor="Blue"
+                Grid.Row="0"
+                Grid.Column="3"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"
+                />
+        </Grid>
+        <Grid x:Name="gridEstudiantes">
+            <!-- Aquí se agregarán las filas y columnas dinámicamente -->
+        </Grid>
+    </VerticalStackLayout>
+
+</ContentPage>
