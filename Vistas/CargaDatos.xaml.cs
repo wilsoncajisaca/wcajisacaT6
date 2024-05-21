@@ -18,40 +18,18 @@ public partial class CargaDatos : ContentPage
 	{
         var content = await _httpClient.GetStringAsync(Url);
         List<Estudiante> mostrarEst = JsonConvert.DeserializeObject<List<Estudiante>>(content);
+		estudiantes = new ObservableCollection<Estudiante>(mostrarEst);
+		listaEstudiantes.ItemsSource = estudiantes;
+    }
 
-        // Definir las columnas
-        gridEstudiantes.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(375, GridUnitType.Absolute) });
-        gridEstudiantes.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(200, GridUnitType.Absolute) });
-        gridEstudiantes.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(200, GridUnitType.Absolute) });
-        gridEstudiantes.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(200, GridUnitType.Absolute) });
+    private void btnAgregar_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new VAgregar());
+    }
 
-        // Agregar los elementos a la cuadrícula
-        int rowIndex = 0;
-        foreach (var estudiante in mostrarEst)
-        {
-            gridEstudiantes.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
-
-            var labelCodigo = new Label { Text = estudiante.codigo };
-            gridEstudiantes.Children.Add(labelCodigo);
-            Grid.SetRow(labelCodigo, rowIndex);
-            Grid.SetColumn(labelCodigo, 0);
-
-            var labelNombre = new Label { Text = estudiante.nombre };
-            gridEstudiantes.Children.Add(labelNombre);
-            Grid.SetRow(labelNombre, rowIndex);
-            Grid.SetColumn(labelNombre, 1);
-
-            var labelApellido = new Label { Text = estudiante.apellido };
-            gridEstudiantes.Children.Add(labelApellido);
-            Grid.SetRow(labelApellido, rowIndex);
-            Grid.SetColumn(labelApellido, 2);
-
-            var labelEdad = new Label { Text = estudiante.edad };
-            gridEstudiantes.Children.Add(labelEdad);
-            Grid.SetRow(labelEdad, rowIndex);
-            Grid.SetColumn(labelEdad, 3);
-
-            rowIndex++;
-        }
+    private void listaEstudiantes_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+    {
+		var estudiante = (Estudiante)e.SelectedItem;
+		Navigation.PushAsync(new VActEliminar(estudiante));
     }
 }

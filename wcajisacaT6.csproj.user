@@ -27,6 +27,12 @@
     <MauiXaml Update="Vistas\CargaDatos.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Vistas\VActEliminar.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Vistas\VAgregar.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
   </ItemGroup>
   <ItemGroup>
     <None Update="Platforms\Windows\Package.appxmanifest">

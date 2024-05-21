@@ -47,9 +47,42 @@
                 HorizontalTextAlignment="Center"
                 />
         </Grid>
-        <Grid x:Name="gridEstudiantes">
-            <!-- Aquí se agregarán las filas y columnas dinámicamente -->
-        </Grid>
+        <ListView x:Name="listaEstudiantes" ItemSelected="listaEstudiantes_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="lblCodigo" Text="{Binding codigo}"
+                                   Grid.Row="0"
+                                   Grid.Column="0"/>
+                            <Label x:Name="lblNombre" Text="{Binding nombre}"
+                                   Grid.Row="0"
+                                   Grid.Column="1"/>
+                            <Label x:Name="lblApellido" Text="{Binding apellido}"
+                                   Grid.Row="0"
+                                   Grid.Column="2"/>
+                            <Label x:Name="lblEdad" Text="{Binding edad}"
+                                    Grid.Row="0"
+                                    Grid.Column="3"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button x:Name="btnAgregar"
+                Clicked="btnAgregar_Clicked"
+                Text="Agregar nuevo"/>
+
     </VerticalStackLayout>
 
 </ContentPage>
